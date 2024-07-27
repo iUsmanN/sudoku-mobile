@@ -26,19 +26,19 @@ struct GridView: View {
         .background {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
-                    Color.blue.opacity(0.05)
-                    Color.blue.opacity(0.15)
-                    Color.blue.opacity(0.05)
+                    Color.gray.opacity(0.05)
+                    Color.gray.opacity(0.2)
+                    Color.gray.opacity(0.05)
                 }
                 HStack(spacing: 0) {
-                    Color.blue.opacity(0.15)
-                    Color.blue.opacity(0.05)
-                    Color.blue.opacity(0.15)
+                    Color.gray.opacity(0.2)
+                    Color.gray.opacity(0.05)
+                    Color.gray.opacity(0.2)
                 }
                 HStack(spacing: 0) {
-                    Color.blue.opacity(0.05)
-                    Color.blue.opacity(0.15)
-                    Color.blue.opacity(0.05)
+                    Color.gray.opacity(0.05)
+                    Color.gray.opacity(0.2)
+                    Color.gray.opacity(0.05)
                 }
             }
         }
@@ -59,7 +59,18 @@ struct GridBox: View {
         }, label: {
             Text("\(gridData.grid[row][col])")
                 .frame(width: 40, height: 40)
-                .border(Color.black)
+                .border(Color.gray)
+                .background {
+                    if gridData.highlightedRow == row && gridData.highlightedIndex == col {
+                        Color.orange
+                    } 
+//                    else if gridData.highlightedRow == row {
+//                        Color.orange.opacity(0.15)
+//                    } else if gridData.highlightedIndex == col {
+//                        Color.orange.opacity(0.15)
+//                    }
+                }
+                .foregroundStyle(.black)
         })
     }
 }

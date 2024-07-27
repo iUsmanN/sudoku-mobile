@@ -28,8 +28,8 @@ class GridData: ObservableObject {
         Array(repeating: 9, count: 9)
     ]
     
-    var highlightedRow: Int? = 0//nil
-    var highlightedIndex: Int? = 0//nil
+    @Published var highlightedRow: Int? = 0//nil
+    @Published var highlightedIndex: Int? = 0//nil
     
     func updateValue(value: Int) {
         guard let highlightedRow, let highlightedIndex else { return }

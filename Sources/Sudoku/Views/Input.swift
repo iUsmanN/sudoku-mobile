@@ -28,6 +28,16 @@ struct InputView: View {
                 InputBox(value: 8)
                 InputBox(value: 9)
             }
+            Button(action: {
+                print("refresh")
+            }, label: {
+                Image(systemName: "arrow.counterclockwise")
+                    .font(.title2)
+                    .frame(width: 65, height: 45)
+                    .border(Color.black)
+                    .bold()
+                    .foregroundStyle(.black)
+            })
         }
     }
 }
@@ -43,6 +53,8 @@ struct InputBox: View {
                 .font(.title2)
                 .frame(width: 65, height: 65)
                 .border(Color.black)
+                .bold()
+                .foregroundStyle(.black)
         })
     }
 }
