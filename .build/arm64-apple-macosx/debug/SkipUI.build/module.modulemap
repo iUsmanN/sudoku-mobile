@@ -1,0 +1,4 @@
+module SkipUI {
+    header "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/SkipUI.build/SkipUI-Swift.h"
+    requires objc
+}

@@ -1,0 +1,29 @@
+{
+  "": {
+    "swift-dependencies": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/master.swiftdeps"
+  },
+  "/Users/usman_nazir/Desktop/sudoku-skip/Sources/Sudoku/ContentView.swift": {
+    "dependencies": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/ContentView.d",
+    "object": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/ContentView.swift.o",
+    "swiftmodule": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/ContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/ContentView.swiftdeps"
+  },
+  "/Users/usman_nazir/Desktop/sudoku-skip/Sources/Sudoku/Sudoku.swift": {
+    "dependencies": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/Sudoku.d",
+    "object": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/Sudoku.swift.o",
+    "swiftmodule": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/Sudoku~partial.swiftmodule",
+    "swift-dependencies": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/Sudoku.swiftdeps"
+  },
+  "/Users/usman_nazir/Desktop/sudoku-skip/Sources/Sudoku/SudokuApp.swift": {
+    "dependencies": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/SudokuApp.d",
+    "object": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/SudokuApp.swift.o",
+    "swiftmodule": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/SudokuApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/SudokuApp.swiftdeps"
+  },
+  "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/DerivedSources/resource_bundle_accessor.swift": {
+    "dependencies": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/resource_bundle_accessor.d",
+    "object": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/resource_bundle_accessor.swift.o",
+    "swiftmodule": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/resource_bundle_accessor~partial.swiftmodule",
+    "swift-dependencies": "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/resource_bundle_accessor.swiftdeps"
+  }
+}

@@ -1,0 +1,4 @@
+module SkipDrive {
+    header "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/SkipDrive.build/SkipDrive-Swift.h"
+    requires objc
+}

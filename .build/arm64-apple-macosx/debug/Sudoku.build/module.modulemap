@@ -1,0 +1,4 @@
+module Sudoku {
+    header "/Users/usman_nazir/Desktop/sudoku-skip/.build/arm64-apple-macosx/debug/Sudoku.build/Sudoku-Swift.h"
+    requires objc
+}
