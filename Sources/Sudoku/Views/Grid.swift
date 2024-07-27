@@ -27,17 +27,17 @@ struct GridView: View {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
                     Color.gray.opacity(0.05)
-                    Color.gray.opacity(0.2)
+                    Color.gray.opacity(0.15)
                     Color.gray.opacity(0.05)
                 }
                 HStack(spacing: 0) {
-                    Color.gray.opacity(0.2)
+                    Color.gray.opacity(0.15)
                     Color.gray.opacity(0.05)
-                    Color.gray.opacity(0.2)
+                    Color.gray.opacity(0.15)
                 }
                 HStack(spacing: 0) {
                     Color.gray.opacity(0.05)
-                    Color.gray.opacity(0.2)
+                    Color.gray.opacity(0.15)
                     Color.gray.opacity(0.05)
                 }
             }
@@ -45,33 +45,89 @@ struct GridView: View {
     }
 }
 
-struct GridBox: View {
+struct SolutionView: View {
     
     var row: Int
     var col: Int
+    var disabled: Bool = false
     
     @ObservedObject var gridData = GridData.shared
+    
+    init(row: Int, col: Int) {
+        self.row = row
+        self.col = col
+        print("\(row), \(col), \(gridData.solutionGrid[row][col])")
+    }
     
     var body: some View {
         Button(action: {
             gridData.highlightedRow = row
             gridData.highlightedIndex = col
         }, label: {
-            Text("\(gridData.grid[row][col])")
+            Text("\(gridData.solutionGrid[row][col] == 0 ? " " : "\(gridData.solutionGrid[row][col])")")
                 .frame(width: 40, height: 40)
-                .border(Color.gray)
+                .border(Color.black.opacity(0.15))
                 .background {
-                    if gridData.highlightedRow == row && gridData.highlightedIndex == col {
-                        Color.orange
-                    } 
-//                    else if gridData.highlightedRow == row {
-//                        Color.orange.opacity(0.15)
-//                    } else if gridData.highlightedIndex == col {
-//                        Color.orange.opacity(0.15)
-//                    }
+                    ZStack {
+                        if !gridData.originalGrid.isEmpty && !gridData.originalGrid[0].isEmpty && gridData.originalGrid[row][col] != 0 {
+                            Color.gray.opacity(0.4)
+                        }
+                        if gridData.highlightedRow == row && gridData.highlightedIndex == col {
+                            Color.yellow
+                        }
+                        else if gridData.highlightedRow == row {
+                            Color.yellow.opacity(0.15)
+                        } else if gridData.highlightedIndex == col {
+                            Color.yellow.opacity(0.15)
+                        }
+                    }
                 }
                 .foregroundStyle(.black)
         })
+        .disabled(!gridData.originalGrid.isEmpty && !gridData.originalGrid[0].isEmpty && gridData.originalGrid[row][col] != 0)
+    }
+}
+
+struct GridBox: View {
+    
+    var row: Int
+    var col: Int
+    var disabled: Bool = false
+    
+    @ObservedObject var gridData = GridData.shared
+    
+    init(row: Int, col: Int) {
+        self.row = row
+        self.col = col
+        print("\(row), \(col), \(gridData.grid[row][col])")
+    }
+    
+    var body: some View {
+        Button(action: {
+            gridData.highlightedRow = row
+            gridData.highlightedIndex = col
+        }, label: {
+            Text("\(gridData.grid[row][col] == 0 ? " " : "\(gridData.grid[row][col])")")
+                .frame(width: 40, height: 40)
+                .border(Color.black.opacity(0.15))
+                .background {
+                    ZStack {
+                        if !gridData.originalGrid.isEmpty && !gridData.originalGrid[0].isEmpty && gridData.originalGrid[row][col] != 0 {
+                            Color.gray.opacity(0.4)
+                        }
+                        if gridData.highlightedRow == row && gridData.highlightedIndex == col {
+                            Color.yellow
+                        }
+                        else if gridData.highlightedRow == row {
+                            Color.yellow.opacity(0.15)
+                        } else if gridData.highlightedIndex == col {
+                            Color.yellow.opacity(0.15)
+                        }
+                    }
+                }
+                .foregroundStyle(.black)
+        })
+        .disabled(!gridData.originalGrid.isEmpty && !gridData.originalGrid[0].isEmpty && gridData.originalGrid[row][col] != 0)
     }
 }
 

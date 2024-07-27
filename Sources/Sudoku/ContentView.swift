@@ -2,38 +2,38 @@ import SwiftUI
 
 class GridData: ObservableObject {
     
-    static var shared: GridData = GridData()
+    static var shared: GridData = GridData(grid: Array(repeating: Array(repeating: 0, count: 9), count: 9))
+
+    @Published var grid: [[Int]] = [[]]
+    @Published var originalGrid: [[Int]] = [[]]
+    @Published var solutionGrid: [[Int]] = [[]]
+    @Published var board: SudokuBoard?
     
-//    @Published var row1: [Int] = Array(repeating: 1, count: 9)
-//    @Published var row2: [Int] = Array(repeating: 2, count: 9)
-//    @Published var row3: [Int] = Array(repeating: 3, count: 9)
-//    
-//    @Published var row4: [Int] = Array(repeating: 4, count: 9)
-//    @Published var row5: [Int] = Array(repeating: 5, count: 9)
-//    @Published var row6: [Int] = Array(repeating: 6, count: 9)
-//    
-//    @Published var row7: [Int] = Array(repeating: 7, count: 9)
-//    @Published var row8: [Int] = Array(repeating: 8, count: 9)
-//    @Published var row9: [Int] = Array(repeating: 9, count: 9)
-    
-    @Published var grid: [[Int]] = [
-        Array(repeating: 1, count: 9),
-        Array(repeating: 2, count: 9),
-        Array(repeating: 3, count: 9),
-        Array(repeating: 4, count: 9),
-        Array(repeating: 5, count: 9),
-        Array(repeating: 6, count: 9),
-        Array(repeating: 7, count: 9),
-        Array(repeating: 8, count: 9),
-        Array(repeating: 9, count: 9)
-    ]
-    
-    @Published var highlightedRow: Int? = 0//nil
-    @Published var highlightedIndex: Int? = 0//nil
+    @Published var highlightedRow: Int? = nil
+    @Published var highlightedIndex: Int? = nil
     
     func updateValue(value: Int) {
         guard let highlightedRow, let highlightedIndex else { return }
         grid[highlightedRow][highlightedIndex] = value
+    }
+    
+    init(grid: [[Int]], highlightedRow: Int? = nil, highlightedIndex: Int? = nil) {
+        self.grid = grid
+        self.highlightedRow = highlightedRow
+        self.highlightedIndex = highlightedIndex
+        
+        fetchSudokuBoard { board in
+            guard let convertedGrid = board?.toGrid, let convertedSolution = board?.solutionGrid else { return }
+            DispatchQueue.main.async {
+                self.grid = convertedGrid
+                self.originalGrid = convertedGrid
+                self.solutionGrid = convertedSolution
+            }
+        }
+    }
+    
+    func refresh() {
+        
     }
 }
 
@@ -47,12 +47,14 @@ public struct ContentView: View {
                     .ignoresSafeArea()
                 VStack(alignment: .center) {
                     HeaderView()
-                    GridView()
+                    ZStack {
+                        GridView()
+                    }
                         .frame(width: geometry.size.width, height: geometry.size.width)
                     InputView()
                         .frame(height: geometry.size.height*0.35)
+                        .padding(.top)
                 }
-                .border(.red)
             }
         }
         .preferredColorScheme(appearance == "dark" ? .dark : appearance == "light" ? .light : nil)

@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct HeaderView: View {
+    
+    @ObservedObject var data = GridData.shared
+    
     var body: some View {
         VStack {
             Text("00:00:00").font(.title2)
-            Text("MEDIUM".uppercased()).font(.title).bold()
+            Text(data.board?.newboard.grids.first?.difficulty.uppercased() ?? "").font(.title).bold()
         }
     }
 }
