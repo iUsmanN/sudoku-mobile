@@ -1,0 +1,49 @@
+//
+//  SwiftUIView.swift
+//  
+//
+//  Created by Usman Nazir on 27/07/2024.
+//
+
+import SwiftUI
+
+struct InputView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                InputBox(value: 1)
+                InputBox(value: 2)
+                InputBox(value: 3)
+            }
+            HStack {
+                InputBox(value: 4)
+                InputBox(value: 5)
+                InputBox(value: 6)
+            }
+            HStack {
+                InputBox(value: 7)
+                InputBox(value: 8)
+                InputBox(value: 9)
+            }
+        }
+    }
+}
+
+struct InputBox: View {
+    
+    var value: Int
+    var body: some View {
+        Button(action: {
+            print("Ok")
+        }, label: {
+            Text("\(value)")
+                .font(.title2)
+                .frame(width: 65, height: 65)
+                .border(Color.black)
+        })
+    }
+}
+
+#Preview {
+    InputView()
+}

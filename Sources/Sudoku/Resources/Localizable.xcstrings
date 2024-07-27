@@ -1,7 +1,17 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "  1  " : {
+
+    },
+    "%lld" : {
+
+    },
+    "00:00:00" : {
+
+    },
     "Appearance" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -30,6 +40,7 @@
       }
     },
     "Dark" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -58,6 +69,7 @@
       }
     },
     "Hello %@!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -86,6 +98,7 @@
       }
     },
     "Home" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -114,6 +127,7 @@
       }
     },
     "Item %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -142,6 +156,7 @@
       }
     },
     "Light" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -170,6 +185,7 @@
       }
     },
     "Name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -198,6 +214,7 @@
       }
     },
     "Powered by %@" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -226,6 +243,7 @@
       }
     },
     "Screen %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -254,6 +272,7 @@
       }
     },
     "Settings" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -282,6 +301,7 @@
       }
     },
     "System" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
@@ -310,6 +330,7 @@
       }
     },
     "Welcome" : {
+      "extractionState" : "stale",
       "localizations" : {
         "es" : {
           "stringUnit" : {
