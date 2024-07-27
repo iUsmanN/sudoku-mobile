@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct InputView: View {
+    
+    @ObservedObject var gridData = GridData.shared
+    
     var body: some View {
         VStack {
             HStack {
@@ -34,7 +37,7 @@ struct InputBox: View {
     var value: Int
     var body: some View {
         Button(action: {
-            print("Ok")
+            GridData.shared.updateValue(value: value)
         }, label: {
             Text("\(value)")
                 .font(.title2)
