@@ -28,16 +28,40 @@ struct InputView: View {
                 InputBox(value: 8)
                 InputBox(value: 9)
             }
-            Button(action: {
-                print("refresh")
-            }, label: {
-                Image(systemName: "arrow.counterclockwise")
-                    .font(.title2)
-                    .frame(width: 65, height: 45)
-                    .border(Color.black)
-                    .bold()
-                    .foregroundStyle(.black)
-            })
+            HStack {
+                Button(action: {
+                    print("refresh")
+                    gridData.restart()
+                }, label: {
+                    Text("Restart")
+                        .font(.footnote)
+                        .frame(width: 65, height: 45)
+                        .border(Color.black)
+                        .foregroundStyle(.black)
+                })
+                Button(action: {
+                    print("refresh")
+                    gridData.refresh()
+                }, label: {
+                    Text("Refresh")
+                        .font(.footnote)
+                        .frame(width: 65, height: 45)
+                        .border(Color.black)
+                        .foregroundStyle(.black)
+                })
+                Button(action: {
+                    print("Solution")
+                    withAnimation {
+                        gridData.showSolution = !gridData.showSolution
+                    }
+                }, label: {
+                    Text("Solution")
+                        .font(.footnote)
+                        .frame(width: 65, height: 45)
+                        .border(Color.black)
+                        .foregroundStyle(.black)
+                })
+            }
         }
     }
 }

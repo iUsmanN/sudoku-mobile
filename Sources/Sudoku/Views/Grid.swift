@@ -23,29 +23,29 @@ struct GridView: View {
             GridRow(row: 7)
             GridRow(row: 8)
         }
-        .background {
-            VStack(spacing: 0) {
-                HStack(spacing: 0) {
-                    Color.gray.opacity(0.05)
-                    Color.gray.opacity(0.15)
-                    Color.gray.opacity(0.05)
-                }
-                HStack(spacing: 0) {
-                    Color.gray.opacity(0.15)
-                    Color.gray.opacity(0.05)
-                    Color.gray.opacity(0.15)
-                }
-                HStack(spacing: 0) {
-                    Color.gray.opacity(0.05)
-                    Color.gray.opacity(0.15)
-                    Color.gray.opacity(0.05)
-                }
-            }
-        }
     }
 }
 
 struct SolutionView: View {
+
+    @ObservedObject var gridData = GridData.shared
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            SolutionRow(row: 0)
+            SolutionRow(row: 1)
+            SolutionRow(row: 2)
+            SolutionRow(row: 3)
+            SolutionRow(row: 4)
+            SolutionRow(row: 5)
+            SolutionRow(row: 6)
+            SolutionRow(row: 7)
+            SolutionRow(row: 8)
+        }
+    }
+}
+
+struct SolutionBox: View {
     
     var row: Int
     var col: Int
@@ -56,7 +56,6 @@ struct SolutionView: View {
     init(row: Int, col: Int) {
         self.row = row
         self.col = col
-        print("\(row), \(col), \(gridData.solutionGrid[row][col])")
     }
     
     var body: some View {
@@ -71,14 +70,8 @@ struct SolutionView: View {
                     ZStack {
                         if !gridData.originalGrid.isEmpty && !gridData.originalGrid[0].isEmpty && gridData.originalGrid[row][col] != 0 {
                             Color.gray.opacity(0.4)
-                        }
-                        if gridData.highlightedRow == row && gridData.highlightedIndex == col {
-                            Color.yellow
-                        }
-                        else if gridData.highlightedRow == row {
-                            Color.yellow.opacity(0.15)
-                        } else if gridData.highlightedIndex == col {
-                            Color.yellow.opacity(0.15)
+                        } else {
+                            Color.white
                         }
                     }
                 }
@@ -110,6 +103,9 @@ struct GridBox: View {
             Text("\(gridData.grid[row][col] == 0 ? " " : "\(gridData.grid[row][col])")")
                 .frame(width: 40, height: 40)
                 .border(Color.black.opacity(0.15))
+            #if !SKIP
+                .contentTransition(.numericText(countsDown: true))
+            #endif
                 .background {
                     ZStack {
                         if !gridData.originalGrid.isEmpty && !gridData.originalGrid[0].isEmpty && gridData.originalGrid[row][col] != 0 {
@@ -128,6 +124,24 @@ struct GridBox: View {
                 .foregroundStyle(.black)
         })
         .disabled(!gridData.originalGrid.isEmpty && !gridData.originalGrid[0].isEmpty && gridData.originalGrid[row][col] != 0)
+    }
+}
+
+struct SolutionRow: View {
+    var row: Int
+    
+    var body: some View {
+        HStack(spacing: 0) {
+            SolutionBox(row: row, col: 0)
+            SolutionBox(row: row, col: 1)
+            SolutionBox(row: row, col: 2)
+            SolutionBox(row: row, col: 3)
+            SolutionBox(row: row, col: 4)
+            SolutionBox(row: row, col: 5)
+            SolutionBox(row: row, col: 6)
+            SolutionBox(row: row, col: 7)
+            SolutionBox(row: row, col: 8)
+        }
     }
 }
 

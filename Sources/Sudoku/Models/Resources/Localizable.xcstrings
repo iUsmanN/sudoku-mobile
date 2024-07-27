@@ -242,6 +242,12 @@
         }
       }
     },
+    "Refresh" : {
+
+    },
+    "Restart" : {
+
+    },
     "Screen %lld" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -299,6 +305,9 @@
           }
         }
       }
+    },
+    "Solution" : {
+
     },
     "System" : {
       "extractionState" : "stale",
